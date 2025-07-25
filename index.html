@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <title>Sum Digits</title>
+    <style>
+        body { font-family: Arial, sans-serif; direction: rtl; }
+        .container { max-width: 400px; margin: auto; padding: 20px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>جمع الأرقام المتجاورة</h1>
+        <input type="text" id="numbers" placeholder="أدخل الأرقام دون فراغات">
+        <button onclick="sumDigits()">احسب المجموع</button>
+        <p id="result"></p>
+    </div>
+    <script>
+        function sumDigits() {
+            const input = document.getElementById('numbers').value;
+            if (!/^\d+$/.test(input)) {
+                document.getElementById('result').textContent = 'يرجى إدخال أرقام فقط بدون فراغات.';
+                return;
+            }
+            let sum = 0;
+            for (let digit of input) {
+                sum += parseInt(digit, 10);
+            }
+            document.getElementById('result').textContent = 'المجموع: ' + sum;
+        }
+    </script>
+</body>
+</html>
